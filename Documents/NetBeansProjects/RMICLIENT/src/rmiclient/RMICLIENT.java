@@ -17,7 +17,7 @@ public class RMICLIENT {
     public static void main(String[] args) {
         
         // TODO code application logic here
-        
+        System.out.print("hey there, i am the client");
         //testing GIT
     }
     
