@@ -5,6 +5,9 @@
  */
 package rmiserver;
 
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+
 /**
  *
  * @author Bilal
@@ -15,8 +18,13 @@ public class RMISERVER {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        //test Git Again
+        try {
+            ServicesInterface services = new Services();
+            Registry r = LocateRegistry.createRegistry(1099);
+            r.bind("services", services);
+            System.out.println("Server running.");
+        } catch (Exception ex) {
+        }
     }
     
 }
