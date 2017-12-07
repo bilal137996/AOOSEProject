@@ -39,7 +39,7 @@ public class ViewTransactionLog extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Date&Time\t\tFrom\t\tTo\t\tRecepient Name\t\tAmount\t\tType");
+        jTextArea1.setText("Date&Time\t\tFrom\t\tRecepient Account\t\tRecepient Name\t\tAmount\t\tType");
         jScrollPane1.setViewportView(jTextArea1);
 
         Back.setText("Back");
@@ -51,7 +51,7 @@ public class ViewTransactionLog extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 830, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 969, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
