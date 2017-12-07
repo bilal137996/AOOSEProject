@@ -14,13 +14,21 @@ import java.util.ArrayList;
  */
 public class BankClients  implements Serializable {
     private String FirstName,LastName,Email,Password,SSN,UserName;
-    int Balance;
+    int Balance;  int AccountNumber; //implement AccountNumber
    public static ArrayList<BankClients> RegisteredClients;
     
     public BankClients(String UserName,String Fname,String Lname,String mail,String pass, String SSN,int Balance){
         this.Balance=Balance;
         this.FirstName=Fname; this.LastName=Lname; this.Email=mail; this.Password=pass;this.SSN=SSN;
         this.UserName=UserName;
+    }
+
+    public int getAccountNumber() {
+        return AccountNumber;
+    }
+
+    public void setAccountNumber(int AccountNumber) {
+        this.AccountNumber = AccountNumber;
     }
 
     public String getFirstName() {
@@ -81,6 +89,15 @@ public class BankClients  implements Serializable {
       public static boolean UserExist(String UserName) {
         for (int i = 0; i < RegisteredClients.size(); i++) {
             if (RegisteredClients.get(i).getUserName().equals(UserName)) {
+                return true;
+            }
+        }
+        return false;
+    }
+       public static boolean AccountExist(int accNum) {
+         
+        for (int i = 0; i < RegisteredClients.size(); i++) {
+            if (RegisteredClients.get(i).getAccountNumber()==accNum) {
                 return true;
             }
         }
