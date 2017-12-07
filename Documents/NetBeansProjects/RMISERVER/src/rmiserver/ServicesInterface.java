@@ -19,4 +19,6 @@ public interface ServicesInterface extends Remote {
     
     public int Make_A_Transaction(int SenderAcc, int RecipientAcc,
             int Amount,  String Type )  throws RemoteException;  
+    
+    public int ViewTransactionsHistory(int AccountNum) throws RemoteException;  
 }

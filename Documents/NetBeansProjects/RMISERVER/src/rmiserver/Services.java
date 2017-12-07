@@ -68,5 +68,25 @@ public class Services implements ServicesInterface {
         return 1;}}
      
     }
+
+    @Override
+    public int ViewTransactionsHistory(int AccountNum) throws RemoteException {
+        
+       for(int i=0; i<Transactions.transactionsList.size();i++)
+       {
+           if(Transactions.transactionsList.get(i).getSenderAcc()==AccountNum )
+           {
+               Transactions x= Transactions.transactionsList.get(i);
+               x.getAmount();
+               x.getRecipientAcc();
+               x.getTimeStamp();
+               x.getTransactionNumber();
+               x.getType();
+               return 1;
+               
+           }
+           
+       }return 0;
+    }
     
 }
