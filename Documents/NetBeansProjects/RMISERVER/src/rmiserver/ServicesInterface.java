@@ -21,4 +21,10 @@ public interface ServicesInterface extends Remote {
             int Amount,  String Type )  throws RemoteException;  
     
     public int ViewTransactionsHistory(int AccountNum) throws RemoteException;  
+    
+    public int CheckBalanceAmount(String UserName) throws RemoteException;
+     public void ViewExchangeRates() throws RemoteException, Exception;
+    
+
+    
 }

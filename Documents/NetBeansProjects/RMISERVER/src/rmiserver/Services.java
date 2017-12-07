@@ -5,26 +5,36 @@
  */
 package rmiserver;
 
+import com.google.gson.Gson;
 import java.rmi.RemoteException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Bilal
  */
 public class Services implements ServicesInterface {
- 
+    
+    
+  double USDEGP ,USDEUR,USDSAR,USDQAR,USDGBP;
    Random r = new Random();
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
       Date date = new Date();
+      
     public Services() throws RemoteException {
         BankClients.RegisteredClients = new ArrayList();
         Transactions.transactionsList= new ArrayList();
     }
+    
+    
+   
+    
     @Override
     public BankClients Loign(String UserName, String Password) throws RemoteException {
          for (int i = 0; i < BankClients.RegisteredClients.size(); i++) {
@@ -87,6 +97,47 @@ public class Services implements ServicesInterface {
            }
            
        }return 0;
+    }
+
+    @Override
+    public int CheckBalanceAmount(String UserName) throws RemoteException {
+        for(int i =0 ; i<BankClients.RegisteredClients.size(); i++){
+            if(BankClients.RegisteredClients.get(i).getUserName().equals(UserName))
+                return BankClients.RegisteredClients.get(i).getBalance();
+        }
+        return 1;
+    }
+
+    @Override
+     public void ViewExchangeRates() throws RemoteException, Exception {
+      
+        
+            BaseRequest.DoGetMethod("http://apilayer.net/api/live?access_key=24f2628deeb8c12dae4b4d65160b52fa&currencies=EUR,EGP,GBP,SAR,QAR&source=USD&format=1",new RequestCallBack() {
+                @Override
+                public void success(String response) {
+                   RootObject<Quotes> x=  new Gson().fromJson(response,new TypeToken<RootObject<Quotes>>(){}.getType());
+                  if(x.getSuccess()==true){
+                      
+                       USDEGP =x.getQuotes().getUSDEGP();
+                        USDEUR =x.getQuotes().getUSDEUR();
+                         USDGBP =x.getQuotes().getUSDGBP();
+                         USDQAR =x.getQuotes().getUSDQAR();
+                         USDSAR =x.getQuotes().getUSDSAR();
+                  } 
+                    System.out.println("Currency from 1 USD To EGP : "+USDEGP);
+                    System.out.println("Currency from 1 USD To Euro : "+USDEUR);
+                    System.out.println("Currency from 1 USD To Sterling Pounds : "+USDGBP);
+                    System.out.println("Currency from 1 USD To Saudi Arabian Ryal : "+USDSAR);
+                    System.out.println("Currency from 1 USD To Qatar Ryal : "+USDQAR);
+                    
+                    
+                }
+
+                @Override
+                public void error(Exception e) {
+                    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                }
+            });
     }
     
 }

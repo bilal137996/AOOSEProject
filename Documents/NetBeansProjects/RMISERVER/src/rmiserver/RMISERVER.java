@@ -7,6 +7,8 @@ package rmiserver;
 
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import com.google.gson.Gson;
+
 
 /**
  *
@@ -19,10 +21,12 @@ public class RMISERVER {
      */
     public static void main(String[] args) {
         try {
+            
             ServicesInterface services = new Services();
             Registry r = LocateRegistry.createRegistry(1099);
             r.bind("services", services);
             System.out.println("Server running.");
+          
         } catch (Exception ex) {
         }
     }

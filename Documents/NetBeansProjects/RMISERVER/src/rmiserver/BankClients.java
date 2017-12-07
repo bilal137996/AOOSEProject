@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Bilal
  */
-public class BankClients  implements Serializable {
+public class BankClients  implements Serializable  {
     private String FirstName,LastName,Email,Password,SSN,UserName;
     int Balance;  int AccountNumber; //implement AccountNumber
    public static ArrayList<BankClients> RegisteredClients;
