@@ -20,15 +20,14 @@ public class RMISERVER {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            
+       try {
             ServicesInterface services = new Services();
             Registry r = LocateRegistry.createRegistry(1099);
-            r.bind("services", services);
+            r.bind("x", services);
             System.out.println("Server running.");
-          
         } catch (Exception ex) {
         }
+
     }
     
 }
