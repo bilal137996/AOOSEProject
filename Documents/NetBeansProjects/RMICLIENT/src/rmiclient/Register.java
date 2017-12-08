@@ -63,6 +63,11 @@ public class Register extends javax.swing.JFrame {
         jLabel7.setText("SSN");
 
         Register.setText("Register");
+        Register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegisterActionPerformed(evt);
+            }
+        });
 
         backtologin.setText("Back To Login");
 
@@ -168,6 +173,10 @@ public class Register extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void RegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegisterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RegisterActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -230,7 +239,7 @@ public String Getssn()
 {
     return ssn.getText();
 }
-public JButton getRegisterButton()
+public JButton RegisterButton()
 {
     return Register;
 }

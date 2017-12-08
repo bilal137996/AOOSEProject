@@ -29,17 +29,22 @@ public class RMICLIENT {
         
         initLoginGUI();
         initRegisterGUI();
+        initHomePage();
         loginGUI.setVisible(true);
         
-         try {
+          // and grab the remote auth object
+        try {
             Registry r = LocateRegistry.getRegistry(1099);
-            services = (ServicesInterface) r.lookup("services");
-            
+            services = (ServicesInterface) r.lookup("x");
         } catch (Exception e) {
             System.out.println("Exception " + e.toString());
         }
     }
-    
+      private static void initHomePage() {
+        Homepage = new ClientHomePage();
+        Homepage.setLocationRelativeTo(null); // center the screen
+    }
+
     private static void initLoginGUI(){
         
      loginGUI = new ClientGUI();
@@ -49,7 +54,7 @@ public class RMICLIENT {
          @Override
          public void actionPerformed(ActionEvent e) {
                try {
-                   if(loginGUI.Getclient().isSelected()){
+                //   if(loginGUI.Getclient().isSelected()){
                 String username = loginGUI.getUserName();
                 String password = loginGUI.getPassword();
                 BankClients client = services.Loign(username, password);
@@ -63,9 +68,9 @@ public class RMICLIENT {
                     Homepage.setAccnum(client.getAccountNumber());
                     Homepage.setVisible(true);
                 }
-                   }
-                   else if(loginGUI.GetAdmin().isSelected()){//Admin Login
-                   }
+                   //}
+                 //  else if(loginGUI.GetAdmin().isSelected()){//Admin Login
+                  // }
                    
                
                } catch (Exception ex) {
@@ -77,25 +82,23 @@ public class RMICLIENT {
   loginGUI.getRegisterButton().addActionListener(new ActionListener() {
          @Override
          public void actionPerformed(ActionEvent e) {
+                   
              loginGUI.dispose();
-             initRegisterGUI();
+             initLoginGUI();
              registerGUI.setVisible(true);
          }
      });
     
 
     }
-//    private static void initHomePageGUI() {
-//        Homepage = new ClientHomePage();
-//        Homepage.setLocationRelativeTo(null); // center the screen
-//    }
+
     
     
     private static void initRegisterGUI() {
         registerGUI = new Register();
         registerGUI.setLocationRelativeTo(null); //center the screen
         // Register the action listeners
-        registerGUI.getRegisterButton().addActionListener(new ActionListener() {
+        registerGUI.RegisterButton().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                     try {
@@ -120,7 +123,7 @@ public class RMICLIENT {
                 }
 
             } catch (Exception ex) {
-
+                   
             }
             }
         });
@@ -128,7 +131,7 @@ public class RMICLIENT {
             @Override
             public void actionPerformed(ActionEvent e) {
                     registerGUI.dispose();
-                    initRegisterGUI();
+                   initRegisterGUI();
                     loginGUI.setVisible(true);
             }
         });

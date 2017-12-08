@@ -94,4 +94,13 @@ public class BankClients  implements Serializable {
         }
         return false;
     }
+          public static boolean AccountExist(int accNum) {
+         
+        for (int i = 0; i < RegisteredClients.size(); i++) {
+            if (RegisteredClients.get(i).getAccountNumber()==accNum) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
