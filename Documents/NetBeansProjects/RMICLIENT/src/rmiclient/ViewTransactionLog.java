@@ -124,6 +124,10 @@ public class ViewTransactionLog extends javax.swing.JFrame {
             }
         });
     }
+    public void setTxtArea(String s){
+    
+        jTextArea1.setText(s);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;

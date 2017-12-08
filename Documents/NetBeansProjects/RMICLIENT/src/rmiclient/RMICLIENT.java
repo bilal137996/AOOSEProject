@@ -7,6 +7,7 @@ package rmiclient;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.util.logging.Level;
@@ -20,20 +21,18 @@ import javax.swing.JOptionPane;
 public class RMICLIENT {
    private static ServicesInterface services; // Our remote object
      private static ClientGUI loginGUI;
-   // private static RegisterGUI registerGUI;
     private static ClientHomePage Homepage;
     private static Register registerGUI;
     private static ViewExchangeRates viewrates;
+    private static ViewTransactionLog viewLog;
     
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
-        
         initLoginGUI();
         initRegisterGUI();
         initHomePage();
         initViewratesGUI();
+      //  initViewLogGUI();
         loginGUI.setVisible(true);
         
           // and grab the remote auth object
@@ -48,6 +47,21 @@ public class RMICLIENT {
         Homepage = new ClientHomePage();
         Homepage.setLocationRelativeTo(null); // center the screen
     }
+//      
+//      private static void initViewLogGUI(){
+//       try {
+//           viewLog= new ViewTransactionLog();
+//           viewLog.setLocationRelativeTo(null);
+//           Transactions x= services.ViewTransactionsHistory(120); //think of a way to get the Same Account number "Shared prefrences"
+//           
+//           viewLog.setTxtArea(
+//                          
+//                   "d");
+//           
+//       } catch (RemoteException ex) {
+//          // Logger.getLogger(RMICLIENT.class.getName()).log(Level.SEVERE, null, ex);
+//       }
+//      }
 private static void initViewratesGUI() {
        try {
            viewrates= new ViewExchangeRates();
@@ -66,8 +80,7 @@ private static void initViewratesGUI() {
             System.out.println("Exception " + ex.toString());
        }
            
-}
-    
+}   
     private static void initLoginGUI(){
         
      loginGUI = new ClientGUI();
@@ -111,11 +124,7 @@ private static void initViewratesGUI() {
              registerGUI.setVisible(true);
          }
      });
-    
-
     }
-
-    
     
     private static void initRegisterGUI() {
         registerGUI = new Register();
