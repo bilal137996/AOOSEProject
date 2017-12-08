@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -21,6 +23,7 @@ public class RMICLIENT {
    // private static RegisterGUI registerGUI;
     private static ClientHomePage Homepage;
     private static Register registerGUI;
+    private static ViewExchangeRates viewrates;
     
     /**
      * @param args the command line arguments
@@ -30,6 +33,7 @@ public class RMICLIENT {
         initLoginGUI();
         initRegisterGUI();
         initHomePage();
+        initViewratesGUI();
         loginGUI.setVisible(true);
         
           // and grab the remote auth object
@@ -44,7 +48,26 @@ public class RMICLIENT {
         Homepage = new ClientHomePage();
         Homepage.setLocationRelativeTo(null); // center the screen
     }
-
+private static void initViewratesGUI() {
+       try {
+           viewrates= new ViewExchangeRates();
+           viewrates.setLocationRelativeTo(null);
+           //NRG3 Leha tany 3ashan nzbt gui el ablo wl b3do :D just finish then copy paste ur work :D :D
+            ExchangeRates rates = services.ViewExchangeRates();
+            viewrates.setUSDEGP(rates.getUSDEGP());
+             viewrates.setUSDEUR(rates.getUSDEUR());
+              viewrates.setUSDSAR(rates.getUSDSAR());
+               viewrates.setUSDQAR(rates.getUSDQAR());
+                viewrates.setUSDGBP(rates.getUSDGBP());
+            
+           
+       } catch (Exception ex) {
+         
+            System.out.println("Exception " + ex.toString());
+       }
+           
+}
+    
     private static void initLoginGUI(){
         
      loginGUI = new ClientGUI();
