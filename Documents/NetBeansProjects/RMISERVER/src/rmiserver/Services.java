@@ -47,11 +47,12 @@ public class Services implements ServicesInterface {
     }
 
     @Override
-    public int Register(String UserName, String Fname, String Lname, String mail, String pass, String SSN, int Balance) throws RemoteException {
+    public int Register(String UserName, String Fname, String Lname, String mail, String pass, String SSN) throws RemoteException {
         if (BankClients.UserExist(UserName)) {
             return 0;
         } else {
-            BankClients client = new BankClients(UserName, Fname, Lname,mail,pass,SSN,0);
+            BankClients client = new BankClients(UserName, Fname, Lname,mail,pass,SSN);
+            client.setBalance(0);
             client.setAccountNumber(100000 + (int)(r.nextFloat() * 899900));
             BankClients.RegisteredClients.add(client);
             return 1;

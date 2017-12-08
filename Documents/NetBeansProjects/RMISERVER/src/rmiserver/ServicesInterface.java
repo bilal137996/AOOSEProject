@@ -15,7 +15,7 @@ import java.rmi.RemoteException;
 public interface ServicesInterface extends Remote {
      public BankClients Loign(String username, String password) throws RemoteException;
     
-    public int Register(String UserName,String Fname,String Lname,String mail,String pass, String SSN,int Balance) throws RemoteException;  
+    public int Register(String UserName,String Fname,String Lname,String mail,String pass, String SSN) throws RemoteException;  
     
     public int Make_A_Transaction(int SenderAcc, int RecipientAcc,
             int Amount,  String Type )  throws RemoteException;  

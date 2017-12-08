@@ -17,7 +17,7 @@ public class BankClients  implements Serializable  {
     int Balance;  int AccountNumber; //implement AccountNumber
    public static ArrayList<BankClients> RegisteredClients;
     
-    public BankClients(String UserName,String Fname,String Lname,String mail,String pass, String SSN,int Balance){
+    public BankClients(String UserName,String Fname,String Lname,String mail,String pass, String SSN){
         this.Balance=Balance;
         this.FirstName=Fname; this.LastName=Lname; this.Email=mail; this.Password=pass;this.SSN=SSN;
         this.UserName=UserName;
