@@ -23,7 +23,7 @@ public interface ServicesInterface extends Remote {
     public int ViewTransactionsHistory(int AccountNum) throws RemoteException;  
     
     public int CheckBalanceAmount(String UserName) throws RemoteException;
-     public void ViewExchangeRates() throws RemoteException, Exception;
+     public ExchangeRates ViewExchangeRates() throws RemoteException, Exception;
     
 
     
