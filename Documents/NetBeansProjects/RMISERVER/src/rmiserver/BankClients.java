@@ -12,10 +12,13 @@ import java.util.ArrayList;
  *
  * @author Bilal
  */
-public class BankClients  implements Serializable  {
+public class BankClients extends Observer implements Serializable   {
     private String FirstName,LastName,Email,Password,SSN,UserName;
     int Balance;  int AccountNumber; //implement AccountNumber
    public static ArrayList<BankClients> RegisteredClients;
+
+    public BankClients() {
+    }
     
     public BankClients(String UserName,String Fname,String Lname,String mail,String pass, String SSN){
         this.Balance=Balance;
@@ -103,4 +106,12 @@ public class BankClients  implements Serializable  {
         }
         return false;
     }
+// public BankClients(Subject subject){
+//      this.subject = subject;
+//      this.subject.attach(this);
+//   }
+    @Override
+    public void update() {
+        System.out.println( "Binary String: " + Integer.toBinaryString( subject.getState() ) ); 
+}
 }

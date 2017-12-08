@@ -13,8 +13,7 @@ import java.util.ArrayList;
  */
 public class ExchangeRates {
     double USDEGP ,USDEUR,USDSAR,USDQAR,USDGBP;
- 
-
+    
     public ExchangeRates(double USDEGP, double USDEUR, double USDSAR, double USDQAR, double USDGBP) {
         this.USDEGP = USDEGP;
         this.USDEUR = USDEUR;

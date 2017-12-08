@@ -5,19 +5,26 @@
  */
 package rmiserver;
 
+import java.util.ArrayList;
+import static rmiserver.BankClients.RegisteredClients;
+
 /**
  *
  * @author Bilal
  */
-public class Users {
-     private String FirstName,LastName,Email,Password,SSN,UserName;
+public class Staff {
+     private String FirstName,LastName,Email,Password,UserName;
 
-    public Users(String FirstName, String LastName, String Email, String Password, String SSN, String UserName) {
+public static ArrayList<Staff> ExistedStaff;
+
+    public Staff() {
+    }
+     
+    public Staff(String FirstName, String LastName, String Email, String Password, String UserName) {
         this.FirstName = FirstName;
         this.LastName = LastName;
         this.Email = Email;
         this.Password = Password;
-        this.SSN = SSN;
         this.UserName = UserName;
     }
 
@@ -53,20 +60,21 @@ public class Users {
         this.Password = Password;
     }
 
-    public String getSSN() {
-        return SSN;
-    }
-
-    public void setSSN(String SSN) {
-        this.SSN = SSN;
-    }
-
     public String getUserName() {
         return UserName;
     }
 
     public void setUserName(String UserName) {
         this.UserName = UserName;
+    }
+    
+        public static boolean UserExist(String UserName) {
+        for (int i = 0; i < ExistedStaff.size(); i++) {
+            if (ExistedStaff.get(i).getUserName().equals(UserName)) {
+                return true;
+            }
+        }
+        return false;
     }
      
 }
