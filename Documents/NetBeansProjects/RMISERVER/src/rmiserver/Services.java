@@ -19,16 +19,16 @@ import sun.security.util.Password;
 
 /**
  *
- * @author Bilal
+ * @author Bilal , StaffServicesInterface
  */
-public class Services extends UnicastRemoteObject implements ServicesInterface , StaffServicesInterface {
+public class Services extends UnicastRemoteObject implements ServicesInterface  {
 
 
  
     
     
  // double USDEGP ,USDEUR,USDSAR,USDQAR,USDGBP;
-    private Object valVal;
+   
    Random r = new Random();
     ExchangeRates rates;
     private static final DateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -64,41 +64,41 @@ public class Services extends UnicastRemoteObject implements ServicesInterface ,
 //    }
 //    
  
-   @Override
-    public Object Loign(Object Param, String username, String password) throws RemoteException {
-   
-         if(Param instanceof BankClients){
-               for (int i = 0; i < BankClients.RegisteredClients.size(); i++) {
-            BankClients bankClient = BankClients.RegisteredClients.get(i);
-            if ((bankClient.getUserName().equals(username)) && (bankClient.getPassword().equals(password))) {
-                return bankClient;
-            }
-        }
-       
-        
-    }else if(Param instanceof Staff){
-          for (int i = 0; i < Staff.ExistedStaff.size(); i++) {
-            Staff staff = Staff.ExistedStaff.get(i);
-            if ((staff.getUserName().equals(username)) && (staff.getPassword().equals(password))) {
-                return staff;
-            }
-        }
-        
-    }
-         return null;
-    }
-
-    
-//    @Override
-//    public BankClients Loign(String UserName, String Password) throws RemoteException {
-//         for (int i = 0; i < BankClients.RegisteredClients.size(); i++) {
+//   @Override
+//    public Object Loign(Object Param, String username, String password) throws RemoteException {
+//   
+//         if(Param instanceof BankClients){
+//               for (int i = 0; i < BankClients.RegisteredClients.size(); i++) {
 //            BankClients bankClient = BankClients.RegisteredClients.get(i);
-//            if ((bankClient.getUserName().equals(UserName)) && (bankClient.getPassword().equals(Password))) {
+//            if ((bankClient.getUserName().equals(username)) && (bankClient.getPassword().equals(password))) {
 //                return bankClient;
 //            }
 //        }
-//        return null;
+//       
+//        
+//    }else if(Param instanceof Staff){
+//          for (int i = 0; i < Staff.ExistedStaff.size(); i++) {
+//            Staff staff = Staff.ExistedStaff.get(i);
+//            if ((staff.getUserName().equals(username)) && (staff.getPassword().equals(password))) {
+//                return staff;
+//            }
+//        }
+//        
 //    }
+//         return null;
+//    }
+
+    
+    @Override
+    public BankClients Loign(String UserName, String Password) throws RemoteException {
+         for (int i = 0; i < BankClients.RegisteredClients.size(); i++) {
+            BankClients bankClient = BankClients.RegisteredClients.get(i);
+            if ((bankClient.getUserName().equals(UserName)) && (bankClient.getPassword().equals(Password))) {
+                return bankClient;
+            }
+        }
+        return null;
+    }
 
     @Override
     public int Register(String UserName, String Fname, String Lname, String mail, String pass, String SSN) throws RemoteException {
@@ -197,11 +197,5 @@ public class Services extends UnicastRemoteObject implements ServicesInterface ,
 
   
 
-   
-  
 
-  
-
-  
-    
 }
