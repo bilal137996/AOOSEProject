@@ -14,13 +14,21 @@ import java.util.ArrayList;
  */
 public class BankClients  implements Serializable {
     private String FirstName,LastName,Email,Password,SSN,UserName;
-    int Balance;
+    int Balance; int AccountNumber;
    public static ArrayList<BankClients> RegisteredClients;
     
-    public BankClients(String UserName,String Fname,String Lname,String mail,String pass, String SSN,int Balance){
+    public BankClients(String UserName,String Fname,String Lname,String mail,String pass, String SSN){
         this.Balance=Balance;
         this.FirstName=Fname; this.LastName=Lname; this.Email=mail; this.Password=pass;this.SSN=SSN;
         this.UserName=UserName;
+    }
+
+    public int getAccountNumber() {
+        return AccountNumber;
+    }
+
+    public void setAccountNumber(int AccountNumber) {
+        this.AccountNumber = AccountNumber;
     }
 
     public String getFirstName() {

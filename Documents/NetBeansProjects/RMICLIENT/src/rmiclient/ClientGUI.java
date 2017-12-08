@@ -5,6 +5,9 @@
  */
 package rmiclient;
 
+import javax.swing.JButton;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author Youseef Noaman
@@ -30,8 +33,8 @@ public class ClientGUI extends javax.swing.JFrame {
         Admin = new javax.swing.JRadioButton();
         Client = new javax.swing.JRadioButton();
         Login = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        UserName = new javax.swing.JTextField();
+        jPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -47,9 +50,9 @@ public class ClientGUI extends javax.swing.JFrame {
 
         Login.setText("Login");
 
-        jTextField1.setText("Username");
+        UserName.setText("Username");
 
-        jPasswordField1.setText("Password");
+        jPassword.setText("Password");
 
         jLabel2.setText("UserName");
 
@@ -77,8 +80,8 @@ public class ClientGUI extends javax.swing.JFrame {
                                     .addComponent(jLabel3)
                                     .addGap(40, 40, 40)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -101,11 +104,11 @@ public class ClientGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UserName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(56, 56, 56)))
                 .addGap(18, 18, 18)
@@ -122,7 +125,7 @@ public class ClientGUI extends javax.swing.JFrame {
         );
 
         Login.getAccessibleContext().setAccessibleName("OK!");
-        jTextField1.getAccessibleContext().setAccessibleName("");
+        UserName.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,17 +164,42 @@ public class ClientGUI extends javax.swing.JFrame {
             }
         });
     }
+      public String getUserName()
+    {
+        return UserName.getText();
+    }
+    
+    public String getPassword()
+    {
+        return jPassword.getText();
+    }
+    
+    public JButton getLoginButton()
+    {
+        return Login;
+    }
+    
+    public JButton getRegisterButton()
+    {
+        return Register;
+    }
+    public JRadioButton Getclient(){
+        return Client;
+    }
+      public JRadioButton GetAdmin(){
+        return Admin;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton Admin;
     private javax.swing.JRadioButton Client;
     private javax.swing.JButton Login;
     private javax.swing.JButton Register;
+    private javax.swing.JTextField UserName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPassword;
     // End of variables declaration//GEN-END:variables
 }

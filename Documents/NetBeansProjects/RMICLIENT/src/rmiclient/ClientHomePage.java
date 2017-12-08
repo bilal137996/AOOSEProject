@@ -38,6 +38,8 @@ public class ClientHomePage extends javax.swing.JFrame {
         sendmessage = new javax.swing.JButton();
         Inbox = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        accnum = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,6 +70,10 @@ public class ClientHomePage extends javax.swing.JFrame {
 
         jButton1.setText("Make a new Bank Account");
 
+        jLabel2.setText("Account Number ");
+
+        accnum.setText("jLabel3");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -95,8 +101,15 @@ public class ClientHomePage extends javax.swing.JFrame {
                             .addComponent(Inbox, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(48, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(91, 91, 91)
-                .addComponent(jButton1)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(jButton1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(accnum)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -121,7 +134,11 @@ public class ClientHomePage extends javax.swing.JFrame {
                     .addComponent(Inbox))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(accnum))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,6 +199,14 @@ public class ClientHomePage extends javax.swing.JFrame {
             }
         });
     }
+     public void setUsername(String s) {
+        username.setText(s);
+    }
+     public void setAccnum(int s){
+         String x= Integer.toString(s);
+         accnum.setText(x);
+     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton CheckBalance;
@@ -190,8 +215,10 @@ public class ClientHomePage extends javax.swing.JFrame {
     private javax.swing.JButton MakeTransaction;
     private javax.swing.JButton ViewExchangeRates;
     private javax.swing.JButton ViewLog;
+    private javax.swing.JLabel accnum;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton sendmessage;
     private javax.swing.JLabel username;
