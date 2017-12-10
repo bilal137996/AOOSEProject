@@ -46,16 +46,24 @@ MongoClient mongoClient = new MongoClient(new ServerAddress(), Arrays.asList(cre
        DB database = mongoClient.getDB("admin");    // to connect to the database, provide its name
        
        DBCollection collection = database.getCollection("SE");      // to connect to the collection in the database, provide its name
-       
-       BasicDBObject Client = new BasicDBObject("name","john").append("address","10th wall street");    // make a new record, provide the entity title then the value, and use append to add more entities
+       // String UserName, String Fname, String Lname, String mail, String pass, String SSN
+       BasicDBObject Client = new BasicDBObject("Username","johny").append("First name","john").append("Last name","locks").append("EMAIL","first@first.com").append("Password","982346rfda");    // make a new record, provide the entity title then the value, and use append to add more entities
+       BasicDBObject Client2 = new BasicDBObject("Username","johnson").append("First name","johns").append("Last name","apaller").append("EMAIL","second@second.com").append("Password","dfsfdf46rfda");    // make a new record, provide the entity title then the value, and use append to add more entities
+       BasicDBObject Client3 = new BasicDBObject("Username","antony").append("First name","tony").append("Last name","jim").append("EMAIL","third@third.com").append("Password","89euf46rfda");    // make a new record, provide the entity title then the value, and use append to add more entities
+       BasicDBObject Client4 = new BasicDBObject("Username","tom").append("First name","tomy").append("Last name","stefson").append("EMAIL","fourth@fourth.com").append("Password","98ujnfds2edd");    // make a new record, provide the entity title then the value, and use append to add more entities
+       BasicDBObject Client5 = new BasicDBObject("Username","jerry").append("First name","jojo").append("Last name","kinder").append("EMAIL","fifth@fifth.com").append("Password","he2uien9das");    // make a new record, provide the entity title then the value, and use append to add more entities
 
         collection.insert(Client);  // to add them into the database
-    
+        collection.insert(Client2); 
+        collection.insert(Client3); 
+        collection.insert(Client4); 
+        collection.insert(Client5); 
+        /*
         DBObject myDoc = collection.findOne();  // this returns the first made record
         System.out.println(myDoc);  // prints it in json format
         System.out.println(collection.getCount());      // gets how many records are in the database
-        //collection.remove(myDoc);     // 
-        
+        //collection.remove(myDoc);     // deletes the record from the database
+        */
 }
     
 }
