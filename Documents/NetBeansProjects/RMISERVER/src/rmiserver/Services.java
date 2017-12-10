@@ -6,11 +6,18 @@
 package rmiserver;
 
 import com.google.gson.Gson;
+import com.mongodb.BasicDBObject;
+import com.mongodb.DB;
+import com.mongodb.DBCollection;
+import com.mongodb.DBObject;
+import com.mongodb.MongoClient;
+import com.sun.security.ntlm.Client;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 import java.util.Random;
 import java.util.logging.Level;
@@ -24,8 +31,7 @@ import sun.security.util.Password;
 public class Services extends UnicastRemoteObject implements ServicesInterface  {
 
 
- 
-    
+
     
  // double USDEGP ,USDEUR,USDSAR,USDQAR,USDGBP;
    
@@ -110,6 +116,7 @@ public class Services extends UnicastRemoteObject implements ServicesInterface  
             client.setAccountNumber(100000 + (int)(r.nextFloat() * 899900));
             BankClients.RegisteredClients.add(client);
             return 1;
+            
         }
     }
     
